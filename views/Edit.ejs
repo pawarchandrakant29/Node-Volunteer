@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Volunteer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            width: 600px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+
+        h2 {
+            font-weight: 700;
+            color: #343a40;
+            margin-bottom: 30px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: #495057;
+        }
+
+        .form-control {
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1rem;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+            transform: translateY(-2px);
+        }
+
+        .btn-success:active {
+            transform: translateY(1px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2 class="text-center"><i class="fas fa-user-edit"></i> Edit Volunteer</h2>
+        <form action="/Update/<%= volunteer.id %>" method="POST" class="mt-4">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" name="fullName" value="<%= volunteer.fullName %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= volunteer.email %>" required>
+            </div>
+            <div class="mb-3">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="<%= volunteer.phoneNumber %>" required>
+            </div>
+            <div class="mb-4">
+                <label for="skills" class="form-label">Skills</label>
+                <input type="text" class="form-control" id="skills" name="skills" value="<%= volunteer.skills %>" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Update</button>
+        </form>
+    </div>
+</body>
+
+</html>
